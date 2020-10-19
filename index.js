@@ -12,6 +12,7 @@ class Product {
         <p>Category: ${this.category}</p>
     `;
   }
+
   display() {
     // take the html and display in in the container
     const productDiv = document.createElement("div");
@@ -21,10 +22,25 @@ class Product {
     if (this.category === "Fruit" || this.category === "Vegetable") {
       productDiv.style.backgroundColor = "#b8de6f";
     }
+    
 
     document.getElementById("products").appendChild(productDiv);
   }
-}
+ 
+  }
+  
+
+
+
+class Bio extends Product {
+  filtered(listProducts) {
+    listProducts = listProducts.filter((list) => {
+      return list.category === 'fruits'
+      
+    });
+  }};
+
+
 
 const muffin = new Product("Muffin", 2, "Sweets", 5);
 const tomato = new Product("Tomato", 1.5, "Vegetable", 3);
@@ -43,6 +59,7 @@ const carrot = new Product("Carrot", 1, "Vegetable", 6);
 const beans = new Product("Chea-peas", 2, "Vegetable", 2);
 const milk = new Product("Soy", 5, "Dairy", 6);
 const seed = new Product("Chai-seeds", 6, "Seed", 5);
+
 
 const listProducts = [
   orange,
