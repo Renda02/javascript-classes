@@ -1,3 +1,7 @@
+body{
+  background-color: #f6f5f5;
+}
+
 .productContainer {
   width: 200px;
   border: 1px solid #c060a1;
@@ -9,4 +13,5 @@
 #products {
   display: flex;
   flex-wrap: wrap;
+  color: #f6f5f5;
 }

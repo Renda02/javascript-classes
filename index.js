@@ -1,9 +1,10 @@
 class Product {
-  constructor(name, price, category, quantity) {
+  constructor(name, price, category, quantity,bio) {
     this.name = name;
     this.price = price;
     this.category = category;
     this.quantity = quantity;
+    this.bio= bio;
   }
   render() {
     return `
@@ -18,25 +19,38 @@ class Product {
     const productDiv = document.createElement("div");
     productDiv.innerHTML = this.render();
     productDiv.classList.add("productContainer");
+
+    const heading = document.createElement("style");
+    heading.innerHTML = `#grocery{
+      background: #effad3;
+      text-align:center;
+      padding:2px auto;
+    }`;
+    document.head.appendChild(heading);
     // only if fruit or veggi
     if (this.category === "Fruit" || this.category === "Vegetable") {
       productDiv.style.backgroundColor = "#b8de6f";
     }
+    else{
+      productDiv.style.backgroundColor = "#2d6187";
+    }
 
     document.getElementById("products").appendChild(productDiv);
   }
+  
 }
 
-class Bio extends Product {
-  filtered(listProducts) {
-    listProducts = listProducts.filter((list) => {
-      return list.category === "fruits";
-    });
+class Fruit extends Product {
+  constructor(bio,category,){
+    super(bio,category)
   }
-}
+ 
+  }
+  
+
 
 const muffin = new Product("Muffin", 2, "Sweets", 5);
-const tomato = new Product("Tomato", 1.5, "Vegetable", 3);
+const tomato = new Product("Tomato", 1.5, "Vegetable", 3, "bio");
 const cheese = new Product("Cheese", 3.5, "Dairy", 2);
 const banana = new Product("Banana", 1, "Fruit", 2);
 const orange = new Product("Orange", 5, "Fruit", 50);
@@ -77,6 +91,11 @@ listProducts
   .sort((a, b) => {
     return b.price - a.price;
   })
+  .filter((list) => {
+      if(list.category === "fruit"){
+        return``
+      };
+    })
   .forEach((element) => {
     element.display();
   });
@@ -86,9 +105,9 @@ listProducts
 
 // TODO:
 // add 10 more products -DONE.
-// add your own style to the shop page
-// add a header and a footer
-// add if the product is bio or not
+// add your own style to the shop page -Done
+// add a header and a footer-Done
+// add if the product is bio or not ?
 
 // TODO:
 // Create a bio-fruit class based on the product one: This will always eb bio and fruit at the same time
