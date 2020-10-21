@@ -128,3 +128,43 @@ function displayProducts(categoryFilter) {
 
 // Advanbced
 // filter: add a button that filter the fruits
+
+
+// Logic for the Movies
+
+function searchMovie() { 
+
+    const movieTitle = document.getElementById("movie-search").value;
+
+  // http://www.omdbapi.com/?t=Avengers
+
+  // send a request ot the Movie API -- async - not at the same time
+
+  const respose = fetch(`http://www.omdbapi.com/?t=${movieTitle}&apikey=8c73ddeb`)
+    .then(res => res.json())
+    .then(data => { 
+
+      // display the movie
+      const movieDiv = document.createElement("div");
+      console.log(data)
+      movieDiv.innerHTML = `
+        <p>${data.Title}</p>
+        <p>${data.Released}</p>
+
+      `;
+
+      document.getElementById("movies").appendChild(movieDiv);
+
+    })
+  
+    // TODO: When a new search happens --> clean up
+    // Complete the movie display
+  // Add css to make it more beautiful
+
+  // Fetch API
+  // Promise --> it will return somehing in the future
+  // Promise().then()
+  // Await / Async 
+
+
+}
