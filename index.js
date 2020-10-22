@@ -133,6 +133,8 @@ function displayProducts(categoryFilter) {
 // Logic for the Movies
 
 function searchMovie() { 
+   document.getElementById("movies").innerHTML = "";
+
 
     const movieTitle = document.getElementById("movie-search").value;
 
@@ -148,7 +150,7 @@ function searchMovie() {
       const movieDiv = document.createElement("div");
       console.log(data)
       movieDiv.innerHTML = `
-        <p>${data.Title}</p>
+        <p> document.getElementById("products").innerHTML = "";${data.Title}</p>
         <p>${data.Released}</p>
 
       `;
@@ -157,7 +159,7 @@ function searchMovie() {
 
     })
   
-    // TODO: When a new search happens --> clean up
+    // TODO: When a new search happens --> clean up- Done
     // Complete the movie display
   // Add css to make it more beautiful
 
@@ -167,4 +169,4 @@ function searchMovie() {
   // Await / Async 
 
 
-}
+}c
