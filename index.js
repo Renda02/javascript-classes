@@ -8,10 +8,10 @@ class Product {
   }
   render() {
     return `
-        <p>Name: ${this.name}</p>
-        <p>Price: ${this.price}</p>
-        <p>Category: ${this.category}</p>
-        <p>Bio: ${this.isBio ? "Yes" : "No"}</p>
+        <li>Name: ${this.name}</li>
+        <li>Price: ${this.price}</li>
+        <li>Category: ${this.category}</li>
+        <li>Bio: ${this.isBio ? "Yes" : "No"}</li>
     `;
   }
 
@@ -150,8 +150,13 @@ function searchMovie() {
       const movieDiv = document.createElement("div");
       console.log(data)
       movieDiv.innerHTML = `
-        <p> document.getElementById("products").innerHTML = "";${data.Title}</p>
-        <p>${data.Released}</p>
+        <ul>
+        <li>Title: <span>${data.Title}</span></li>
+        <li>Released:<span> ${data.Released}</li>
+        <li>Rated: <span>${data.Rated}</li>
+        <li>Runtime: <span>${data.Runtime}</li>
+        <li>Genre: <span>${data.Genre}</li></ul>
+        
 
       `;
 
@@ -160,8 +165,8 @@ function searchMovie() {
     })
   
     // TODO: When a new search happens --> clean up- Done
-    // Complete the movie display
-  // Add css to make it more beautiful
+    // Complete the movie display -Done
+  // Add css to make it more beautiful- In progress!!
 
   // Fetch API
   // Promise --> it will return somehing in the future
@@ -169,4 +174,4 @@ function searchMovie() {
   // Await / Async 
 
 
-}c
+}

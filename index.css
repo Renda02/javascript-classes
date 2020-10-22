@@ -2,16 +2,34 @@ body{
   background-color: #f6f5f5;
 }
 
-.productContainer {
+ul, .productContainer {
   width: 200px;
   border: 1px solid #c060a1;
   border-radius: 3px;
   padding: 5px;
-  margin: 5px;
+  margin: 5gpx;
 }
 
 #products {
   display: flex;
   flex-wrap: wrap;
   color: #f6f5f5;
+}
+
+ul{
+  margin-top: 1;
+}
+
+
+li{  padding-right: 5px;
+  color: red;
+  line-height: 20px;
+  list-style: none;
+  font-size: 20px;
+
+}
+
+span{
+  color: gray;
+  
 }
