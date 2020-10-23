@@ -151,11 +151,16 @@ function searchMovie() {
       console.log(data)
       movieDiv.innerHTML = `
         <ul>
-        <li>Title: <span>${data.Title}</span></li>
-        <li>Released:<span> ${data.Released}</li>
-        <li>Rated: <span>${data.Rated}</li>
-        <li>Runtime: <span>${data.Runtime}</li>
-        <li>Genre: <span>${data.Genre}</li></ul>
+        <li><b>Title:</b>  <span>${data.Title}</span></li>
+        <li><b>Released:</b> <span> ${data.Released}</li>
+        <li><b>Rated:</b>  <span>${data.Rated}</li>
+        <li><b>Runtime:</b>  <span>${data.Runtime}</li>
+        <li><b>Genre:</b> <span>${data.Genre}</li>
+        <li><b>Directors:</b> <span>${data.Directors}</li>
+        <li><b>Language:</b> <span>${data.Language}</li>
+        <li><b>Country:</b> <span>${data.Country}</li>
+        <li><b>Ratings:</><span>${data.imdbRating}</li>
+        </ul>
         
 
       `;

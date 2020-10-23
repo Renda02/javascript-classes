@@ -2,7 +2,7 @@ body{
   background-color: #f6f5f5;
 }
 
-ul, .productContainer {
+ .productContainer {
   width: 200px;
   border: 1px solid #c060a1;
   border-radius: 3px;
@@ -16,20 +16,36 @@ ul, .productContainer {
   color: #f6f5f5;
 }
 
-ul{
-  margin-top: 1;
-}
-
+b{color: #f56a79;}
 
 li{  padding-right: 5px;
-  color: red;
   line-height: 20px;
   list-style: none;
   font-size: 20px;
-
+font-family: Arial, Helvetica, sans-serif;
 }
 
 span{
-  color: gray;
-  
+  color: gray; 
 }
+
+#movie-search{
+  border-radius: 15px 0 0 15px;
+  padding: 10px;
+  margin: 5px auto;
+  width: 20%;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+#submit{padding: 10px;
+  background-color:#f56a79;
+  font-size: 15px;
+  color: white;
+  font-weight: 300px;
+  width: 10%;
+  border-radius: 0 15px 15px 0;
+  border-left: none;
+margin-left: -4px;
+cursor: pointer;}
+
