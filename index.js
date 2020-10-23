@@ -86,6 +86,19 @@ const listProducts = [
   banana,
 ];
 
+function displayPrice(price) {
+  document.getElementById("products").innerHTML = ""; 
+  
+   listProducts.sort((a, b) => {
+     if (a.price < b.price) {
+        return -1
+     }
+     if (a.price > b.price) {
+     return 1
+   } return 0}// TODO: Make a parameter to also sort desc / asc by price
+    )
+}
+
 function displayProducts(categoryFilter) {
   // clean up
   document.getElementById("products").innerHTML = "";
@@ -93,9 +106,7 @@ function displayProducts(categoryFilter) {
 
   // bfore show prodcuts
   listProducts
-    .sort((a, b) => {
-      return b.price - a.price; // TODO: Make a parameter to also sort desc / asc by price
-    })
+   
     .filter((element) => {
       if (categoryFilter && categoryFilter !== "") {
         // filter logic
