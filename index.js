@@ -42,10 +42,10 @@ class Product {
 
 class BioFruit extends Product {
   constructor(name, price, quantity) {
-    super(name,price, "Fruit",quantity,true);
+    super(name, price, "Fruit", quantity, true);
   }
 }
-const bioOrange = new BioFruit("Orange", 1, 4)
+const bioOrange = new BioFruit("Orange", 1, 4);
 const orange = new Product("Orange", 5, "Fruit", 50);
 const muffin = new Product("Muffin", 2, "Sweets", 5);
 const tomato = new Product("Tomato", 1.5, "Vegetable", 3, "bio");
@@ -86,27 +86,27 @@ const listProducts = [
   banana,
 ];
 
-function displayPrice(price) {
-  document.getElementById("products").innerHTML = ""; 
-  
-   listProducts.sort((a, b) => {
-     if (a.price < b.price) {
-        return -1
-     }
-     if (a.price > b.price) {
-     return 1
-   } return 0}// TODO: Make a parameter to also sort desc / asc by price
-    )
+// .sort((a,b) => (a.price - b.price))
+
+function displayPrice(order = "asc") {
+  document.getElementById("products").innerHTML = "";
+
+  if (order === "desc") {
+    listProducts.sort((a, b) => a.price - b.price);
+  } else {
+    listProducts.sort((a, b) => b.price - a.price);
+  }
+
+  listProducts.forEach((prod) => prod.display());
 }
 
 function displayProducts(categoryFilter) {
   // clean up
   document.getElementById("products").innerHTML = "";
 
-
   // bfore show prodcuts
   listProducts
-   
+
     .filter((element) => {
       if (categoryFilter && categoryFilter !== "") {
         // filter logic
@@ -124,7 +124,6 @@ function displayProducts(categoryFilter) {
     });
 }
 
-
 // create some html to disply it
 // add the html to our page
 
@@ -140,26 +139,25 @@ function displayProducts(categoryFilter) {
 // Advanbced
 // filter: add a button that filter the fruits
 
-
 // Logic for the Movies
 
-function searchMovie() { 
-   document.getElementById("movies").innerHTML = "";
+function searchMovie() {
+  document.getElementById("movies").innerHTML = "";
 
-
-    const movieTitle = document.getElementById("movie-search").value;
+  const movieTitle = document.getElementById("movie-search").value;
 
   // http://www.omdbapi.com/?t=Avengers
 
   // send a request ot the Movie API -- async - not at the same time
 
-  const respose = fetch(`http://www.omdbapi.com/?t=${movieTitle}&apikey=8c73ddeb`)
-    .then(res => res.json())
-    .then(data => { 
-
+  const response = fetch(
+    `http://www.omdbapi.com/?t=${movieTitle}&apikey=8c73ddeb`
+  ) // returns a Promise object
+    .then((res) => res.json()) // returns a Promise object
+    .then((data) => {
       // display the movie
       const movieDiv = document.createElement("div");
-      console.log(data)
+      console.log(data);
       movieDiv.innerHTML = `
         <ul>
         <li><b>Title:</b>  <span>${data.Title}</span></li>
@@ -177,17 +175,59 @@ function searchMovie() {
       `;
 
       document.getElementById("movies").appendChild(movieDiv);
+    });
 
-    })
-  
-    // TODO: When a new search happens --> clean up- Done
-    // Complete the movie display -Done
+  // TODO: When a new search happens --> clean up- Done
+  // Complete the movie display -Done
   // Add css to make it more beautiful- In progress!!
 
   // Fetch API
   // Promise --> it will return somehing in the future
   // Promise().then()
-  // Await / Async 
+  // Await / Async
+}
+
+async function searchMovieAsync() {
+  document.getElementById("movies").innerHTML = "";
+
+  const movieTitle = document.getElementById("movie-search").value;
+
+  // http://www.omdbapi.com/?t=Avengers
+
+  // send a request ot the Movie API -- async - not at the same time
+
+  const response = await fetch(
+    `http://www.omdbapi.com/?t=${movieTitle}&apikey=8c73ddeb`
+  ); // returns the response
+
+  const data = await response.json();
+
+  console.log(data);
 
 
+  const movieDiv = document.createElement("div");
+  movieDiv.innerHTML = `
+        <ul>
+        <li><b>Title:</b>  <span>${data.Title}</span></li>
+        <li><b>Released:</b> <span> ${data.Released}</li>
+        <li><b>Rated:</b>  <span>${data.Rated}</li>
+        <li><b>Runtime:</b>  <span>${data.Runtime}</li>
+        <li><b>Genre:</b> <span>${data.Genre}</li>
+        <li><b>Directors:</b> <span>${data.Directors}</li>
+        <li><b>Language:</b> <span>${data.Language}</li>
+        <li><b>Country:</b> <span>${data.Country}</li>
+        <li><b>Ratings:</><span>${data.imdbRating}</li>
+        </ul>
+      `;
+
+  document.getElementById("movies").appendChild(movieDiv);
+
+  // TODO: When a new search happens --> clean up- Done
+  // Complete the movie display -Done
+  // Add css to make it more beautiful- In progress!!
+
+  // Fetch API
+  // Promise --> it will return somehing in the future
+  // Promise().then()
+  // Await / Async
 }
