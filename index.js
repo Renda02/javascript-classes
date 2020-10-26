@@ -26,11 +26,13 @@ class Product {
       background: #effad3;
       text-align:center;
       padding:2px auto;
+      
     }`;
 
     // only if fruit or veggi
     if (this.category === "Fruit" || this.category === "Vegetable") {
       productDiv.style.backgroundColor = "#b8de6f";
+      
     } else {
       productDiv.style.backgroundColor = "#2d6187";
     }
